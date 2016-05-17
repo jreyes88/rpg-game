@@ -1,0 +1,27 @@
+body {
+	font-family: 'Patrick Hand', cursive;
+}
+
+.jumbotron {
+	padding: 10px;
+	color: red;
+	background-color: #ffe734;
+	margin: none;
+	border-color: red;
+	border-width: 5px;
+	border-style: solid;
+}
+
+.col-md-15 {
+	width: 20%;
+	display: inline-block;
+}
+
+.hero-images {
+	width: 100%;
+}
+
+.good-character {
+	background-color: #ffe734;
+	color: red;
+}
