@@ -24,27 +24,23 @@ $(document).ready(function() {
      $(".nullPane").click(function(event) {
           if (myHero == "") {
                var heroChoice = $(this);
-               //console.log(heroChoice);
                $(this).removeClass("nullPane").addClass("heroPane");
                myHero = "full";
-               // $(".heroPane").append(heroChoice);
+               console.log("myHero: "+ myHero);
           };
+
           /* Villain Choice */
           instructionHTML = "<h3>Now choose an enemy!!</h3>"
           $(".instructionPane").html(instructionHTML);
 
           if (myVillain == "" && myHero == "full") {
-               console.log("Logic for Villain Choice is working");
                $(".nullPane").click(function(event) {
                     $(this).removeClass("nullPane").addClass("villainPane");
                     myVillain = "full";
+                    console.log("myVillain: " + myVillain);
                });
           };
      });
-
-     if (myHero == "full" && myVillain == "full") {
-          $(".fightPane").html(activePane);
-     }
 });
 
 myHTML = [];

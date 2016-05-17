@@ -46,3 +46,8 @@ body {
 	border-width: 3px;
 	border-style: solid;
 }
+
+.nonFightPane {
+	height: 100px;
+	background-color: orange;
+}
