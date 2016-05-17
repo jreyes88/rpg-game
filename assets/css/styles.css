@@ -25,3 +25,22 @@ body {
 	background-color: #ffe734;
 	color: red;
 }
+
+.nullPane {
+	background-color: white;
+	border-color: white;
+	border-width: 3px;
+	border-style: solid;
+}
+
+.heroPane {
+	background-color: yellow;
+	border-color: red;
+	border-width: 3px;
+	border-style: solid;
+}
+
+/*.villainPane {
+	background-color: yellow;
+	height: 100px;
+}*/
