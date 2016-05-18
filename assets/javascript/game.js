@@ -26,7 +26,6 @@ $(document).ready(function() {
                var heroChoice = $(this);
                $(this).removeClass("nullPane").addClass("heroPane");
                myHero = "full";
-               console.log("myHero: "+ myHero);
           };
 
           /* Villain Choice */
@@ -37,7 +36,14 @@ $(document).ready(function() {
                $(".nullPane").click(function(event) {
                     $(this).removeClass("nullPane").addClass("villainPane");
                     myVillain = "full";
-                    console.log("myVillain: " + myVillain);
+
+                    if (myHero =="full" && myVillain == "full") {
+                         $(".nullPane").parent().removeClass("activePane");
+                         var nonChosenCharacters = $(".nullPane");
+                         console.log(nonChosenCharacters);
+                         $(".nonFightPane").append(nonChosenCharacters);
+                    };
+
                });
           };
      });

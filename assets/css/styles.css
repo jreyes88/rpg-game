@@ -31,6 +31,7 @@ body {
 	border-color: white;
 	border-width: 3px;
 	border-style: solid;
+	height: 100%;
 }
 
 .heroPane {
@@ -47,7 +48,12 @@ body {
 	border-style: solid;
 }
 
-.nonFightPane {
-	height: 100px;
+.waitVillainPane {
+	height: 100%;
 	background-color: orange;
+	float: right;
+}
+
+.nonFightPane {
+	background: green;
 }
