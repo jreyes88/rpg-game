@@ -3,7 +3,7 @@ body {
 }
 
 .jumbotron {
-	padding: 10px;
+	padding: 6px;
 	color: red;
 	background-color: #ffe734;
 	margin: none;
@@ -54,6 +54,9 @@ body {
 	float: right;
 }
 
+.fightInstructionsVisibility {
+	visibility: hidden;
+}
+
 .nonFightPane {
-	background: green;
 }
