@@ -39,6 +39,7 @@ body {
 	border-color: red;
 	border-width: 3px;
 	border-style: solid;
+	float: left;
 }
 
 .villainPane {
@@ -46,6 +47,7 @@ body {
 	border-color: yellow;
 	border-width: 3px;
 	border-style: solid;
+	float: right;
 }
 
 .waitVillainPane {
@@ -58,5 +60,10 @@ body {
 	visibility: hidden;
 }
 
-.nonFightPane {
+#fightButton {
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 20%;
+	display: inline;
+	height: 40px;
 }
