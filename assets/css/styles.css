@@ -66,8 +66,14 @@ body {
 	margin-top: 20%;
 	display: inline;
 	height: 40px;
+	float: none;
 }
 
 .fightInstructions {
 	/*background-color: orange;*/
+}
+
+.willBeHiddenDefeatedCharacters {
+	background-color: orange;
+	height: 20px;
 }
