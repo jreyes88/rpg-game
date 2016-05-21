@@ -45,14 +45,14 @@ $(document).ready(function() {
 
                     if (myHero !== -1 && myVillain !== -1) {
                          var nonChosenCharacters = $(".nullPane");
+
+                         /* Create Fight Button */
                          instructionHTML = "<h3>Click the Fight button to fight!</h3>";
                          updateInstructions();
                          $(".fightButton").removeClass("buttonVisibility");
 
-                         /* Create Fight Button */
                          $("div.heroPane > p.health").html("health: " + characterArray[myHero].healthPoints);
                          $("div.villainPane > p.health").html("health: " + characterArray[myVillain].healthPoints);
-                         $(".fightPane").append("<div class='updatingFightText'></div>");
 
                          /* Fighting */
                          
@@ -84,7 +84,11 @@ $(document).ready(function() {
                if (characterArray[myVillain].healthPoints <= 0) {
                     nextOpponent();
                };
-     }); 
+               if (characterArray[myHero].healthPoints <= 0) {
+                    alert("you lose!");
+               };
+     });
+
      function nextOpponent() {
           instructionHTML = "<h3>Choose a new Opponent</h3>";
           $(".instructionPane").html(instructionHTML);
@@ -93,9 +97,13 @@ $(document).ready(function() {
           $(".defeatedCharacters").append(goAwayCharacters);
           };
      };
+
+     function clearFightText() {
+          fightInstructionsText = "";
+          $(".updatingFightText").html(fightInstructionsText);
+
+     }
 });
-
-
 
 myHTML = [];
 instructionHTML = [];
@@ -107,7 +115,7 @@ var characterArray = [
      // img1: "#", (.find for second image to change src for image tag)
      healthPoints: 150,
      attackPower: 0,
-     originalAttackPower: 5,
+     originalAttackPower: 10,
      counterAttackPower: 5
      },
 
@@ -116,7 +124,7 @@ var characterArray = [
      img: "assets/images/linda.png",
      healthPoints: 155,
      attackPower: 0,
-     originalAttackPower: 8,
+     originalAttackPower: 15,
      counterAttackPower: 8
      },
      
@@ -125,7 +133,7 @@ var characterArray = [
      img: "assets/images/tina.png",
      healthPoints: 160,
      attackPower: 0,
-     originalAttackPower: 10,
+     originalAttackPower: 20,
      counterAttackPower: 10
      },
 
@@ -134,7 +142,7 @@ var characterArray = [
      img: "assets/images/gene.png",
      healthPoints: 165,
      attackPower: 0,
-     originalAttackPower: 12,
+     originalAttackPower: 25,
      counterAttackPower: 12
      },
 
@@ -143,9 +151,6 @@ var characterArray = [
      img: "assets/images/louise.png",
      healthPoints: 170,
      attackPower: 0,
-     originalAttackPower: 15,
+     originalAttackPower: 30,
      counterAttackPower: 15
      }];
-
-
-// .dettach (look this up)
