@@ -20,6 +20,7 @@ $(document).ready(function() {
 
      var myHero = "";
      var myVillain = "";
+     var fightInstructionsText = "";
 
      /* Hero Choice */
      $(".nullPane").click(function(event) {
@@ -34,7 +35,6 @@ $(document).ready(function() {
           $(".instructionPane").html(instructionHTML);
 
           if (myVillain == "" && myHero !== -1) {
-               console.log("ready for enemy choice")
                $(".nullPane").click(function(event) {
                     $(this).removeClass("nullPane").addClass("villainPane");
                     myVillain = $(this).attr("id");
@@ -50,7 +50,7 @@ $(document).ready(function() {
                          $(".nonFightPaneInstructions").removeClass("fightInstructionsVisibility");
 
                          /* Create Fight Button */
-                         $(".fightPane").append("<button id='fightButton'>Fight!</button><div class='fightInstructions'></div>");
+                         $(".buttonPane").removeClass("buttonPaneVisibility");
                          $("div.heroPane > p.health").html("health: " + characterArray[myHero].healthPoints);
                          $("div.villainPane > p.health").html("health: " + characterArray[myVillain].healthPoints);
 
@@ -74,7 +74,7 @@ $(document).ready(function() {
 
                /* On Screen Attack Test */
                var fightInstructionsText = characterArray[myHero].name + " has attacked " + characterArray[myVillain].name + " for " + characterArray[myHero].attackPower + " life points." + "<br>" + characterArray[myVillain].name + " has attacked " + characterArray[myHero].name + " for " + characterArray[myVillain].counterAttackPower + " life points.";
-
+               console.log(fightInstructionsText);
                $(".fightInstructions").html(fightInstructionsText);
 
                /* Hero Getting Attacked */
