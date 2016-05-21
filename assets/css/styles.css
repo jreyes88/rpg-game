@@ -32,6 +32,7 @@ body {
 	border-width: 3px;
 	border-style: solid;
 	height: 100%;
+	float: left;
 }
 
 .heroPane {
@@ -56,27 +57,42 @@ body {
 	float: right;
 }
 
-.fightInstructionsVisibility {
-	visibility: hidden;
+.buttonPane {
+	height: 56px;
 }
 
-.buttonPaneVisibility {
-	visibility: hidden;
+.buttonVisibility {
+	display: none;
 }
 
-#fightButton {
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: auto;
-	margin-bottom: auto;
-	height: 40px;
+.goButton {
+	cursor: default;
+	background-color: #F2F74D;
+	width: 70px;
+	height: 100%;
+	border-color: black;
+	border-width: 3px;
+	border-style: solid;
 }
 
 .fightInstructions {
-	/*background-color: orange;*/
+	background-color: orange;
 }
 
-.willBeHiddenDefeatedCharacters {
+.defeatedCharacters {
+	display: none;
+}
+
+.activePane {
+	float: left;
+}
+
+.nonFightPane {
+	height: 233px;
+	background-color: blue;
+	float: right;
+}
+
+.arena {
 	background-color: orange;
-	height: 20px;
 }

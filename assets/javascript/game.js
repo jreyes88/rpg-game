@@ -5,19 +5,21 @@ $(document).ready(function() {
           myHTML += "<div class='col-md-15 text-center nullPane' id=" + i + "><h3>" + characterArray[i].name + "</h3><div class='inner-img-container'><img class='hero-images' src=" + characterArray[i].img + "></div><p class='health'>" + "health: " + characterArray[i].healthPoints + "</p></div>";
      };
 
-     instructionHTML = "<h3>Choose a character!</h3>";
-     nonFightPaneInstructions = "<h3>Characters Remaining:</h3>";
-
-
      /* This loads the data above onto the html */
      $(".activePane").html(myHTML);
 
+
+     /* Loads  Initial HTML Directions */
+     instructionHTML = "<h3>Choose a character!</h3>";
+     nonFightPaneInstructions = "<h3>Characters Remaining:</h3>";
+
      /* Manipulates the Instruction Pane */
-     $(".instructionPane").html(instructionHTML);
-     $(".nonFightPaneInstructions").html(nonFightPaneInstructions);
+     function updateInstructions() {
+          $(".instructionPane").html(instructionHTML);
+     };
+     updateInstructions();
 
-     /* User First Click */
-
+     /* Empty Variables */
      var myHero = "";
      var myVillain = "";
      var fightInstructionsText = "";
@@ -26,33 +28,31 @@ $(document).ready(function() {
      $(".nullPane").click(function(event) {
           if (myHero == "" && myVillain == "") {
                var heroChoice = $(this);
-               $(this).removeClass("nullPane").addClass("heroPane");
+               $(this).removeClass("nullPane").addClass("heroPane").appendTo(".fightPane");
                myHero = $(this).attr("id");
           };
 
           /* Villain Choice */
           instructionHTML = "<h3>Now choose an enemy!!</h3>"
-          $(".instructionPane").html(instructionHTML);
+          updateInstructions();
 
           if (myVillain == "" && myHero !== -1) {
                $(".nullPane").click(function(event) {
-                    $(this).removeClass("nullPane").addClass("villainPane");
+                    $(this).removeClass("nullPane").addClass("villainPane").appendTo(".fightPane");
                     myVillain = $(this).attr("id");
 
                     /* Moving Non-Chosen Characters */
 
                     if (myHero !== -1 && myVillain !== -1) {
-                         $(".nullPane").parent().removeClass("activePane");
                          var nonChosenCharacters = $(".nullPane");
-                         $(".nonFightPane").append(nonChosenCharacters);
                          instructionHTML = "<h3>Click the Fight button to fight!</h3>";
-                         $(".instructionPane").html(instructionHTML);
-                         $(".nonFightPaneInstructions").removeClass("fightInstructionsVisibility");
+                         updateInstructions();
+                         $(".fightButton").removeClass("buttonVisibility");
 
                          /* Create Fight Button */
-                         $(".buttonPane").removeClass("buttonPaneVisibility");
                          $("div.heroPane > p.health").html("health: " + characterArray[myHero].healthPoints);
                          $("div.villainPane > p.health").html("health: " + characterArray[myVillain].healthPoints);
+                         $(".fightPane").append("<div class='updatingFightText'></div>");
 
                          /* Fighting */
                          
@@ -66,7 +66,7 @@ $(document).ready(function() {
      });
 
      function fight() {
-          $("#fightButton").click(function(event) {
+          $(".goButton").click(function(event) {
 
                /* Hero Attack */
                characterArray[myHero].attackPower = characterArray[myHero].attackPower + characterArray[myHero].originalAttackPower;
@@ -75,7 +75,7 @@ $(document).ready(function() {
                /* On Screen Attack Test */
                var fightInstructionsText = characterArray[myHero].name + " has attacked " + characterArray[myVillain].name + " for " + characterArray[myHero].attackPower + " life points." + "<br>" + characterArray[myVillain].name + " has attacked " + characterArray[myHero].name + " for " + characterArray[myVillain].counterAttackPower + " life points.";
                console.log(fightInstructionsText);
-               $(".fightInstructions").html(fightInstructionsText);
+               $(".updatingFightText").html(fightInstructionsText);
 
                /* Hero Getting Attacked */
                characterArray[myHero].healthPoints = characterArray[myHero].healthPoints - characterArray[myVillain].counterAttackPower;
@@ -84,14 +84,13 @@ $(document).ready(function() {
                if (characterArray[myVillain].healthPoints <= 0) {
                     nextOpponent();
                };
-     });
-
+     }); 
      function nextOpponent() {
           instructionHTML = "<h3>Choose a new Opponent</h3>";
           $(".instructionPane").html(instructionHTML);
           $(".villainPane").removeClass("villainPane").addClass("defeatedPane");
           var goAwayCharacters = $(".defeatedPane");
-          $(".willBeHiddenDefeatedCharacters").append(goAwayCharacters);
+          $(".defeatedCharacters").append(goAwayCharacters);
 
           myVillain = "";
           };
@@ -108,7 +107,7 @@ var characterArray = [
      name: "Bob",
      img: "assets/images/bob.png",
      // img1: "#", (.find for second image to change src for image tag)
-     healthPoints: 130,
+     healthPoints: 150,
      attackPower: 0,
      originalAttackPower: 5,
      counterAttackPower: 5
@@ -117,7 +116,7 @@ var characterArray = [
      {
      name: "Linda",
      img: "assets/images/linda.png",
-     healthPoints: 135,
+     healthPoints: 155,
      attackPower: 0,
      originalAttackPower: 8,
      counterAttackPower: 8
@@ -126,7 +125,7 @@ var characterArray = [
      {
      name: "Tina",
      img: "assets/images/tina.png",
-     healthPoints: 140,
+     healthPoints: 160,
      attackPower: 0,
      originalAttackPower: 10,
      counterAttackPower: 10
@@ -135,7 +134,7 @@ var characterArray = [
      {
      name: "Gene",
      img: "assets/images/gene.png",
-     healthPoints: 145,
+     healthPoints: 165,
      attackPower: 0,
      originalAttackPower: 12,
      counterAttackPower: 12
@@ -144,8 +143,11 @@ var characterArray = [
      {
      name: "Louise",
      img: "assets/images/louise.png",
-     healthPoints: 150,
+     healthPoints: 170,
      attackPower: 0,
      originalAttackPower: 15,
      counterAttackPower: 15
      }];
+
+
+// .dettach (look this up)
