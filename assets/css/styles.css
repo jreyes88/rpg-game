@@ -41,6 +41,7 @@ body {
 	border-width: 3px;
 	border-style: solid;
 	float: left;
+	display: block;
 }
 
 .villainPane {
@@ -49,12 +50,7 @@ body {
 	border-width: 3px;
 	border-style: solid;
 	float: right;
-}
-
-.waitVillainPane {
-	height: 100%;
-	background-color: orange;
-	float: right;
+	display: block;
 }
 
 .buttonPane {
@@ -95,4 +91,9 @@ body {
 
 .arena {
 	background-color: orange;
+}
+
+.updatingFightingText {
+	width: 70%;
+	float: left;
 }

@@ -91,8 +91,6 @@ $(document).ready(function() {
           $(".villainPane").removeClass("villainPane").addClass("defeatedPane");
           var goAwayCharacters = $(".defeatedPane");
           $(".defeatedCharacters").append(goAwayCharacters);
-
-          myVillain = "";
           };
      };
 });
